@@ -1,6 +1,7 @@
 package com.westone.cryptoservice.lm.auth.config;
 
 import com.westone.cryptoservice.lm.auth.authorize.AuthorizeConfigManager;
+import com.westone.cryptoservice.lm.auth.authorize.CommonAuthorizeConfigProvider;
 import com.westone.cryptoservice.lm.auth.properties.AuthProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +17,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AuthorizeConfigManager authorizeConfigManager;
+    @Autowired
+    private FormAuthenticationConfig formAuthenticationConfig;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        formAuthenticationConfig.configure(http);
+        http.csrf().disable();
         authorizeConfigManager.config(http.authorizeRequests());
+        http.authorizeRequests().anyRequest().authenticated();
     }
 }
