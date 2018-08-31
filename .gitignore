@@ -1,0 +1,9 @@
+/target/
+/.settings/
+/.idea/
+lm.iml
+/log/
+/auth/target/
+/auth/auth.iml
+/lm-server/target/
+/lm-server/auth.iml
