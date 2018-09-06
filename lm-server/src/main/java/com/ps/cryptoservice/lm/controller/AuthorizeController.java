@@ -1,6 +1,6 @@
-package com.westone.cryptoservice.lm.controller;
+package com.ps.cryptoservice.lm.controller;
 
-import com.westone.cryptoservice.lm.dto.LMResponse;
+import com.ps.cryptoservice.lm.dto.LMResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

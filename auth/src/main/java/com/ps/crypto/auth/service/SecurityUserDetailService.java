@@ -1,4 +1,4 @@
-package com.westone.cryptoservice.lm.auth.service;
+package com.ps.crypto.auth.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;

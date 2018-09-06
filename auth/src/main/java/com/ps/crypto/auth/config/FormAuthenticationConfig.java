@@ -1,6 +1,6 @@
-package com.westone.cryptoservice.lm.auth.config;
+package com.ps.crypto.auth.config;
 
-import com.westone.cryptoservice.lm.auth.properties.AuthProperties;
+import com.ps.crypto.auth.properties.AuthProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;

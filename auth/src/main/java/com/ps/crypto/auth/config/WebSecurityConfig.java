@@ -1,8 +1,6 @@
-package com.westone.cryptoservice.lm.auth.config;
+package com.ps.crypto.auth.config;
 
-import com.westone.cryptoservice.lm.auth.authorize.AuthorizeConfigManager;
-import com.westone.cryptoservice.lm.auth.authorize.CommonAuthorizeConfigProvider;
-import com.westone.cryptoservice.lm.auth.properties.AuthProperties;
+import com.ps.crypto.auth.authorize.AuthorizeConfigManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

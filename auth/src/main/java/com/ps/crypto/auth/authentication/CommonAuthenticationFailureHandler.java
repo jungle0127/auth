@@ -1,8 +1,7 @@
-package com.westone.cryptoservice.lm.auth.authentication;
+package com.ps.crypto.auth.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.westone.cryptoservice.lm.auth.dto.AuthResponse;
-import com.westone.cryptoservice.lm.auth.properties.AuthProperties;
+import com.ps.crypto.auth.dto.AuthResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

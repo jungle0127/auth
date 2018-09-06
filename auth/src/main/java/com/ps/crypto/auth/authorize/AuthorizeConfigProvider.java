@@ -1,8 +1,8 @@
-package com.westone.cryptoservice.lm.auth.authorize;
+package com.ps.crypto.auth.authorize;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 
-public interface AuthorizeConfigManager {
+public interface AuthorizeConfigProvider {
     void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config);
 }

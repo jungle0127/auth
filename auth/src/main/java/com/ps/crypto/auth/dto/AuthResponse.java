@@ -1,7 +1,7 @@
-package com.westone.cryptoservice.lm.dto;
+package com.ps.crypto.auth.dto;
 
-public class LMResponse<T> {
-    public LMResponse(T data){
+public class AuthResponse<T> {
+    public AuthResponse(T data){
         this.data = data;
     }
     private T data;

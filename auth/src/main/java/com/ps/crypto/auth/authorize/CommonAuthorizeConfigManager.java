@@ -1,4 +1,4 @@
-package com.westone.cryptoservice.lm.auth.authorize;
+package com.ps.crypto.auth.authorize;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

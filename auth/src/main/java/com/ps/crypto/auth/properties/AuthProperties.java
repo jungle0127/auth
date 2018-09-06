@@ -1,4 +1,4 @@
-package com.westone.cryptoservice.lm.auth.properties;
+package com.ps.crypto.auth.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
