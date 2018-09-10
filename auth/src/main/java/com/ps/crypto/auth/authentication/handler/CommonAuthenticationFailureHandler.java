@@ -1,4 +1,4 @@
-package com.ps.crypto.auth.authentication;
+package com.ps.crypto.auth.authentication.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ps.crypto.auth.dto.AuthResponse;

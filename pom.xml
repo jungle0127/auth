@@ -13,7 +13,7 @@
         <module>lm-server</module>
     </modules>
 
-    <name>com.westone.cryptoservice.lm</name>
+    <name>lm</name>
     <url>http://www.example.com</url>
 
     <properties>
