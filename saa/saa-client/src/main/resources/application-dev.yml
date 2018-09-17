@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /saa
+
+saa:
+  browser:
+    loginPage: /default-form-sign-in.html
+    loginProcessingUrl: /authentication/form

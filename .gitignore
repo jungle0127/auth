@@ -1,8 +1,7 @@
-/target/
-/.settings/
 /.idea/
 /log/
-/auth/target/
-/lm-server/target/
 *.iml
+/saa/.idea/
+/saa/saa-client/target
+/saa/saa-core/target
 
