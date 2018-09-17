@@ -3,6 +3,7 @@ package com.ps.saa.core.config;
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
 import com.ps.saa.core.validate.code.filter.ImageCodeFilter;
+import com.ps.saa.core.validate.code.filter.SMSCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(new ImageCodeFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new SMSCodeFilter(),UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 .loginPage(SAAConstants.AUTHENTICATE_URL)
                 .loginProcessingUrl(this.saaProperties.getBrowser().getLoginProcessingUrl())

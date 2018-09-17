@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="saa/saa-client/src/main/java"/>
+	<classpathentry kind="src" path="saa/saa-client/src/main/resources"/>
+	<classpathentry kind="src" path="saa/saa-client/src/test"/>
+	<classpathentry kind="src" path="saa/saa-core/src/main/java"/>
+	<classpathentry kind="output" path="saa/production/auth"/>
+</classpath>
