@@ -5,7 +5,7 @@
     <title>Sign In</title>
 </head>
 <body>
-<h3>Common Sign In</h3>
+<h3>Common Sign In With Image Code</h3>
 <form action="/saa/authentication/form" method="post">
     <table>
         <tr>
@@ -15,6 +15,13 @@
         <tr>
             <td>Password</td>
             <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>Image Code</td>
+            <td>
+                <input type="text" name="imageCode">
+                <img alt="image code" src="/saa/validate/code/image?width=67">
+            </td>
         </tr>
         <tr>
             <td colspan="2">

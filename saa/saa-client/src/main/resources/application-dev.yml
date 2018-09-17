@@ -3,7 +3,16 @@ server:
   servlet:
     context-path: /saa
 
+logging:
+  config: classpath:log/logback.cfg.xml
+
 saa:
   browser:
-    loginPage: /default-form-sign-in.html
+    loginPage: /default-form-image-code-sign-in.html
     loginProcessingUrl: /authentication/form
+  validateCode:
+    imageCode:
+      width: 67
+      height: 23
+      codeLength: 4
+      expiredInMinutes: 5
