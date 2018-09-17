@@ -6,6 +6,10 @@ public interface SAAConstants {
     String AUTHENTICATE_URL = "/authentication/require";
 
     String VALIDATE_CODE_IMAGE_URL = "/validate/code/image";
+    String VALIDATE_CODE_SMS_URL = "/validate/code/sms";
     String IMAGE_CODE_SESSION_KEY = "IMAGE_CODE_SESSION_KEY";
+    String SMS_CODE_SESSION_KEY = "SMS_CODE_SESSION_KEY";
+    String DEFAULT_PHONENUMBER_PARAMETER_NAME = "phoneNumber";
+
 
 }

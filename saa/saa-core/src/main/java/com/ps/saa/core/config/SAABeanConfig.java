@@ -1,6 +1,8 @@
 package com.ps.saa.core.config;
 
 import com.ps.saa.core.service.DefaultUserDetailsService;
+import com.ps.saa.core.validate.code.sms.SMSCodeSender;
+import com.ps.saa.core.validate.code.sms.impl.DefaultSMSCodeSenderImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,5 +21,10 @@ public class SAABeanConfig {
     @ConditionalOnMissingBean(UserDetailsService.class)
     public UserDetailsService userDetailsService(){
         return new DefaultUserDetailsService();
+    }
+    @Bean
+    @ConditionalOnMissingBean(SMSCodeSender.class)
+    public SMSCodeSender smsCodeSender(){
+        return new DefaultSMSCodeSenderImpl();
     }
 }

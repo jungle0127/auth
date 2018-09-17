@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl(this.saaProperties.getBrowser().getLoginProcessingUrl())
                 .and()
                 .authorizeRequests().antMatchers(
+                        SAAConstants.VALIDATE_CODE_SMS_URL,
                         SAAConstants.VALIDATE_CODE_IMAGE_URL,
                         SAAConstants.AUTHENTICATE_URL,
                         saaProperties.getBrowser().getLoginProcessingUrl(),
