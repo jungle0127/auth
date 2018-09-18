@@ -10,6 +10,7 @@ public interface SAAConstants {
     String IMAGE_CODE_SESSION_KEY = "IMAGE_CODE_SESSION_KEY";
     String SMS_CODE_SESSION_KEY = "SMS_CODE_SESSION_KEY";
     String DEFAULT_PHONENUMBER_PARAMETER_NAME = "phoneNumber";
+    String DEFAULT_SMSCODE_PARAMETER_NAME = "smsCode";
 
 
 

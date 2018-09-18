@@ -42,7 +42,7 @@ public class SMSCodeFilter extends OncePerRequestFilter {
 
     private void validateSMSCode(ServletWebRequest request) throws ServletRequestBindingException {
         SMSCode smsCodeInSession = (SMSCode)this.sessionStrategy.getAttribute(request, SAAConstants.SMS_CODE_SESSION_KEY);
-        String smsCodeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),SAAConstants.DEFAULT_PHONENUMBER_PARAMETER_NAME);
+        String smsCodeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),SAAConstants.DEFAULT_SMSCODE_PARAMETER_NAME);
         if(StringUtils.isBlank(smsCodeInRequest)) {
             throw new ValidateCodeException("SMS code can not be null.");
         }

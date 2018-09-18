@@ -14,7 +14,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SAAProperties saaProperties;
-
+    @Autowired
+    private SMSCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(new ImageCodeFilter(), UsernamePasswordAuthenticationFilter.class)
@@ -32,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                .apply(smsCodeAuthenticationSecurityConfig);
     }
 }
