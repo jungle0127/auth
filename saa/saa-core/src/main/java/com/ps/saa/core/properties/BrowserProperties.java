@@ -2,7 +2,7 @@ package com.ps.saa.core.properties;
 
 public class BrowserProperties {
     private String loginPage = SAAConstants.DEFAULT_LOGIN_PAGE;
-    private String loginProcessingUrl = SAAConstants.DEFAULT_LOGIN_PROCESSING_URL;
+    private String loginProcessingUrl = SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL;
 
     public String getLoginPage() {
         return loginPage;

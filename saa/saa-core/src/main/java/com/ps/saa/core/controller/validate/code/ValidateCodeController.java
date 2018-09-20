@@ -42,6 +42,7 @@ public class ValidateCodeController {
         SMSCode smsCode = (SMSCode) this.smsCodeGenerator.generateValidateCode(new ServletWebRequest(request));
         this.sessionStrategy.setAttribute(new ServletWebRequest(request),SAAConstants.SMS_CODE_SESSION_KEY,smsCode);
         String phoneNumber = ServletRequestUtils.getStringParameter(request,SAAConstants.DEFAULT_PHONENUMBER_PARAMETER_NAME);
+        phoneNumber = request.getParameter("phoneNumber");
         this.smsCodeSender.send(phoneNumber,smsCode.getCode());
     }
 }

@@ -3,7 +3,6 @@ package com.ps.saa.core.validate.code.filter;
 import com.ps.saa.core.exception.ValidateCodeException;
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.validate.code.image.ImageCode;
-import com.ps.saa.core.validate.code.image.ImageCodeGenerator;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +26,7 @@ public class ImageCodeFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String requestURI = httpServletRequest.getRequestURI();
         String requestMethod = httpServletRequest.getMethod();
-        String loginProcessingUrl = "/saa" + SAAConstants.DEFAULT_LOGIN_PROCESSING_URL;
+        String loginProcessingUrl = "/saa" + SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL;
         if(StringUtils.equals(requestURI, loginProcessingUrl) && StringUtils.equalsIgnoreCase(requestMethod,"POST")){
             try{
                 validateImageCode(new ServletWebRequest(httpServletRequest));

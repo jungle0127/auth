@@ -5,7 +5,7 @@
     <title>SMS Sign In</title>
 </head>
 <body>
-<form action="/saa/authentication/form" method="post">
+<form action="/saa/authentication/sms" method="post">
     <table>
         <tr>
             <td>手机号:</td>
@@ -15,7 +15,7 @@
             <td>短信验证码:</td>
             <td>
                 <input type="text" name="smsCode">
-                <a href="/saa/validate/code/sms">发送验证码</a>
+                <a href="/saa/validate/code/sms?phoneNumber=18088888888">发送验证码</a>
             </td>
         </tr>
         <tr>

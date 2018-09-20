@@ -25,6 +25,6 @@ public class SMSCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
         smsAuthenticationProvider.setUserDetailsService(userDetailsService);
 
         builder.authenticationProvider(smsAuthenticationProvider)
-                .addFilterAfter(smsAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(smsAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }

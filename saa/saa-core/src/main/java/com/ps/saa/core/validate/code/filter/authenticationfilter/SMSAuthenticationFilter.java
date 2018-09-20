@@ -1,12 +1,16 @@
 package com.ps.saa.core.validate.code.filter.authenticationfilter;
 
 import com.ps.saa.core.properties.SAAConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.ServletRequestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +19,7 @@ public class SMSAuthenticationFilter extends AbstractAuthenticationProcessingFil
     // ~ Static fields/initializers
     // =====================================================================================
 
-
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     private String phoneNumberParameter = SAAConstants.DEFAULT_PHONENUMBER_PARAMETER_NAME;
 
     private boolean postOnly = true;
@@ -24,7 +28,7 @@ public class SMSAuthenticationFilter extends AbstractAuthenticationProcessingFil
     // ===================================================================================================
 
     public SMSAuthenticationFilter() {
-        super(new AntPathRequestMatcher(SAAConstants.VALIDATE_CODE_SMS_URL, "POST"));
+        super(new AntPathRequestMatcher(SAAConstants.DEFAULT_SMS_LGOIN_PROCESSING_URL, "POST"));
     }
 
     // ~ Methods
@@ -64,7 +68,13 @@ public class SMSAuthenticationFilter extends AbstractAuthenticationProcessingFil
      * request token to the <code>AuthenticationManager</code>
      */
     protected String obtainPhoneNumber(HttpServletRequest request) {
-        return request.getParameter(phoneNumberParameter);
+        String phoneNumber = null;
+        try {
+            phoneNumber = ServletRequestUtils.getStringParameter(request,phoneNumberParameter);
+        } catch (ServletRequestBindingException e) {
+            logger.error("Retrieve phone number from request failed with exception:" + e.getMessage());
+        }
+        return phoneNumber;
     }
 
     /**
