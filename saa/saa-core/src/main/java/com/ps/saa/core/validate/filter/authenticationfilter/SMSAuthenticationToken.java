@@ -1,4 +1,4 @@
-package com.ps.saa.core.validate.code.filter.authenticationfilter;
+package com.ps.saa.core.validate.filter.authenticationfilter;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

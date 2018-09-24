@@ -8,7 +8,7 @@ logging:
 
 saa:
   browser:
-    loginPage: /default-form-image-code-sign-in.html
+    loginPage: /default-form-sms-code-sign-in.html
     loginProcessingUrl: /authentication/form
   validateCode:
     imageCode:

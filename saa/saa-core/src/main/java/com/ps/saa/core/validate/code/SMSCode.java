@@ -1,4 +1,4 @@
-package com.ps.saa.core.validate.code.sms;
+package com.ps.saa.core.validate.code;
 
 import com.ps.saa.core.validate.code.ValidateCode;
 

@@ -1,8 +1,9 @@
-package com.ps.saa.core.validate.code.image;
+package com.ps.saa.core.validate.generator.impl;
 
 import com.ps.saa.core.properties.SAAProperties;
 import com.ps.saa.core.validate.code.ValidateCode;
-import com.ps.saa.core.validate.code.ValidateCodeGenerator;
+import com.ps.saa.core.validate.generator.ValidateCodeGenerator;
+import com.ps.saa.core.validate.code.ImageCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -12,7 +13,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-@Component
+@Component(value = "imageCodeGenerator")
 public class ImageCodeGenerator implements ValidateCodeGenerator {
     @Autowired
     private SAAProperties saaProperties;

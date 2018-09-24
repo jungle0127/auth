@@ -2,8 +2,8 @@ package com.ps.saa.core.config;
 
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
-import com.ps.saa.core.validate.code.filter.ImageCodeFilter;
-import com.ps.saa.core.validate.code.filter.SMSCodeFilter;
+import com.ps.saa.core.validate.filter.ImageCodeFilter;
+import com.ps.saa.core.validate.filter.SMSCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

@@ -1,7 +1,6 @@
-package com.ps.saa.core.validate.code.sms.impl;
+package com.ps.saa.core.validate.code.sender.impl;
 
-import com.ps.saa.core.validate.code.sms.SMSCodeSender;
-import org.springframework.stereotype.Component;
+import com.ps.saa.core.validate.code.sender.SMSCodeSender;
 
 public class DefaultSMSCodeSenderImpl implements SMSCodeSender {
     @Override

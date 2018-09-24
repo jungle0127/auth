@@ -1,8 +1,8 @@
-package com.ps.saa.core.validate.code.filter;
+package com.ps.saa.core.validate.filter;
 
 import com.ps.saa.core.exception.ValidateCodeException;
 import com.ps.saa.core.properties.SAAConstants;
-import com.ps.saa.core.validate.code.sms.SMSCode;
+import com.ps.saa.core.validate.code.ImageCode;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,43 +19,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SMSCodeFilter extends OncePerRequestFilter {
+public class ImageCodeFilter extends OncePerRequestFilter {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String requestURI = httpServletRequest.getRequestURI();
         String requestMethod = httpServletRequest.getMethod();
         String loginProcessingUrl = "/saa" + SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL;
-        if(StringUtils.equals(requestURI,loginProcessingUrl) && StringUtils.equalsIgnoreCase(requestMethod,"POST")){
+        if(StringUtils.equals(requestURI, loginProcessingUrl) && StringUtils.equalsIgnoreCase(requestMethod,"POST")){
             try{
-                validateSMSCode(new ServletWebRequest(httpServletRequest));
+                validateImageCode(new ServletWebRequest(httpServletRequest));
             } catch (ServletRequestBindingException e){
-                logger.error(String.format("Validate sms code failed with exception:%s",e.getMessage()));
+                logger.error(String.format("Validate image code failed with exception:%s",e.getMessage()));
                 return;
             }
         }
         filterChain.doFilter(httpServletRequest,httpServletResponse);
-
     }
 
-    private void validateSMSCode(ServletWebRequest request) throws ServletRequestBindingException {
-        SMSCode smsCodeInSession = (SMSCode)this.sessionStrategy.getAttribute(request, SAAConstants.SMS_CODE_SESSION_KEY);
-        String smsCodeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),SAAConstants.DEFAULT_SMSCODE_PARAMETER_NAME);
-        if(StringUtils.isBlank(smsCodeInRequest)) {
-            throw new ValidateCodeException("SMS code can not be null.");
+    private void validateImageCode(ServletWebRequest request) throws ServletRequestBindingException {
+        ImageCode imageCodeInSession = (ImageCode) this.sessionStrategy.getAttribute(request,SAAConstants.IMAGE_CODE_SESSION_KEY);
+        String imageCodeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),"imageCode");
+        if(StringUtils.isBlank(imageCodeInRequest)) {
+            throw new ValidateCodeException("Image code can not be null.");
         }
-        if(smsCodeInSession == null) {
-            throw new ValidateCodeException("SMS code does not exist.");
+        if(imageCodeInSession == null) {
+            throw new ValidateCodeException("Image code does not exist.");
         }
-        if(smsCodeInSession.isExpired()) {
+        if(imageCodeInSession.isExpired()) {
             this.sessionStrategy.removeAttribute(request, SAAConstants.IMAGE_CODE_SESSION_KEY);
-            throw new ValidateCodeException("SMS code is expired.");
+            throw new ValidateCodeException("Image code is expired.");
         }
-        if(!StringUtils.equals(smsCodeInRequest, smsCodeInSession.getCode())) {
-            throw new ValidateCodeException("SMS code does not match");
+        if(!StringUtils.equals(imageCodeInRequest, imageCodeInSession.getCode())) {
+            throw new ValidateCodeException("Image code does not match");
         }
-        this.sessionStrategy.removeAttribute(request,SAAConstants.SMS_CODE_SESSION_KEY);
+        this.sessionStrategy.removeAttribute(request, SAAConstants.IMAGE_CODE_SESSION_KEY);
     }
 }

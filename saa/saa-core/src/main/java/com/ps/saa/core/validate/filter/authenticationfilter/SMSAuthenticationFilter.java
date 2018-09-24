@@ -1,4 +1,4 @@
-package com.ps.saa.core.validate.code.filter.authenticationfilter;
+package com.ps.saa.core.validate.filter.authenticationfilter;
 
 import com.ps.saa.core.properties.SAAConstants;
 import org.slf4j.Logger;
