@@ -8,8 +8,8 @@ public interface SAAConstants {
 
     String VALIDATE_CODE_IMAGE_URL = "/validate/code/image";
     String VALIDATE_CODE_SMS_URL = "/validate/code/sms";
-    String IMAGE_CODE_SESSION_KEY = "IMAGE_CODE_SESSION_KEY";
-    String SMS_CODE_SESSION_KEY = "SMS_CODE_SESSION_KEY";
+    String IMAGE_CODE_SESSION_KEY = "SESSION_KEY_CODE_IMAGE";
+    String SMS_CODE_SESSION_KEY = "SESSION_KEY_CODE_SMS";
     String DEFAULT_PHONENUMBER_PARAMETER_NAME = "phoneNumber";
     String DEFAULT_SMSCODE_PARAMETER_NAME = "smsCode";
 

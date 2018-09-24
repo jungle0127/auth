@@ -21,7 +21,7 @@ public class ValidateCodeController {
     @GetMapping("/{type}")
     public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type) throws IOException {
         ValidateCodeProcessor codeProcessor =  validateCodeProcessorMap.get(type + "CodeProcessor");
-        codeProcessor.create(new ServletWebRequest(request));
+        codeProcessor.create(new ServletWebRequest(request,response));
     }
 //    @Autowired
 //    private ValidateCodeGenerator imageCodeGenerator;

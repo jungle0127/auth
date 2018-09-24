@@ -27,7 +27,7 @@ public class SMSCodeFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String requestURI = httpServletRequest.getRequestURI();
         String requestMethod = httpServletRequest.getMethod();
-        String loginProcessingUrl = "/saa" + SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL;
+        String loginProcessingUrl = "/saa" + SAAConstants.DEFAULT_SMS_LGOIN_PROCESSING_URL;
         if(StringUtils.equals(requestURI,loginProcessingUrl) && StringUtils.equalsIgnoreCase(requestMethod,"POST")){
             try{
                 validateSMSCode(new ServletWebRequest(httpServletRequest));

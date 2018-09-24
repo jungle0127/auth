@@ -36,7 +36,8 @@ public abstract class AbstractorValidateCodeProcessor<T extends ValidateCode> im
     }
 
     private void save(ServletWebRequest request, T validateCode) {
-        sessionStrategy.setAttribute(request,SESSION_KEY_PREFIX + getProcessorType(request),validateCode);
+        String sessionKey = SESSION_KEY_PREFIX + getProcessorType(request).toUpperCase();
+        sessionStrategy.setAttribute(request,sessionKey,validateCode);
     }
 
 
