@@ -8,7 +8,7 @@ logging:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Drvier
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/saa?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
     username: root
     password: lotus

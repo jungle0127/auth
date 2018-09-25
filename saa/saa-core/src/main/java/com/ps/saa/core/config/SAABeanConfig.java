@@ -38,7 +38,7 @@ public class SAABeanConfig {
     public PersistentTokenRepository persistentTokenRepository(){
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();
         tokenRepository.setDataSource(dataSource);
-        tokenRepository.setCreateTableOnStartup(true);
+        tokenRepository.setCreateTableOnStartup(false);
         return tokenRepository;
     }
 }
