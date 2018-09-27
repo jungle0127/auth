@@ -1,5 +1,6 @@
 package com.ps.saa.core.config;
 
+import com.ps.saa.core.service.DefaultSocialUserDetailService;
 import com.ps.saa.core.service.DefaultUserDetailsService;
 import com.ps.saa.core.validate.code.sender.SMSCodeSender;
 import com.ps.saa.core.validate.code.sender.impl.DefaultSMSCodeSenderImpl;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.social.security.SocialUserDetailsService;
 
 import javax.sql.DataSource;
 
@@ -30,10 +32,16 @@ public class SAABeanConfig {
         return new DefaultUserDetailsService();
     }
     @Bean
+    @ConditionalOnMissingBean(SocialUserDetailsService.class)
+    public SocialUserDetailsService socialUserDetailsService(){
+        return new DefaultSocialUserDetailService();
+    }
+    @Bean
     @ConditionalOnMissingBean(SMSCodeSender.class)
     public SMSCodeSender smsCodeSender(){
         return new DefaultSMSCodeSenderImpl();
     }
+
     @Bean
     public PersistentTokenRepository persistentTokenRepository(){
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();

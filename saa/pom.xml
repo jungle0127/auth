@@ -48,6 +48,7 @@
     <modules>
         <module>saa-core</module>
         <module>saa-client</module>
+        <module>saa-app</module>
     </modules>
 
 </project>
