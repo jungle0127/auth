@@ -14,8 +14,14 @@ spring:
     password: lotus
 
 saa:
+  social:
+    filterProcessUrl: /tencent
+    qq:
+      appId: appid
+      appSecret: secret
+      providerId: qq
   browser:
-    loginPage: /default-form-image-code-sign-in.html
+    loginPage: /default-social-qq.html
     loginProcessingUrl: /authentication/form
     rememberMeSeconds: 3600
   validateCode:

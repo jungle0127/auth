@@ -6,13 +6,30 @@ server:
 logging:
   config: classpath:log/logback.cfg.xml
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/saa?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: lotus
+
 saa:
+  social:
+    filterProcessUrl: /tencent
+    qq:
+      appId: appid
+      appSecret: secret
+      providerId: qq
   browser:
-    loginPage: /default-form-image-code-sign-in.html
+    loginPage: /default-social-qq.html
     loginProcessingUrl: /authentication/form
+    rememberMeSeconds: 3600
   validateCode:
     imageCode:
       width: 67
       height: 23
       codeLength: 4
+      expiredInMinutes: 5
+    smsCode:
+      codeLength: 6
       expiredInMinutes: 5

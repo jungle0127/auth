@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class SAAProperties {
     private BrowserProperties browser;
     private ValidateCodeProperties validateCode;
-
+    private SocialProperties social;
     public BrowserProperties getBrowser() {
         return browser;
     }
@@ -21,5 +21,13 @@ public class SAAProperties {
 
     public void setValidateCode(ValidateCodeProperties validateCode) {
         this.validateCode = validateCode;
+    }
+
+    public SocialProperties getSocial() {
+        return social;
+    }
+
+    public void setSocial(SocialProperties social) {
+        this.social = social;
     }
 }
