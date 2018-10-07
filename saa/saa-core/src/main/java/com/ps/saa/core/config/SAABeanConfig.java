@@ -1,5 +1,7 @@
 package com.ps.saa.core.config;
 
+import com.ps.saa.core.authenticate.DefaultAuthenticationFailureHandler;
+import com.ps.saa.core.authenticate.DefaultAuthenticationSuccessHandler;
 import com.ps.saa.core.service.DefaultUserDetailsService;
 import com.ps.saa.core.validate.code.sender.SMSCodeSender;
 import com.ps.saa.core.validate.code.sender.impl.DefaultSMSCodeSenderImpl;
@@ -10,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -19,6 +23,16 @@ import javax.sql.DataSource;
 public class SAABeanConfig {
     @Autowired
     public DataSource dataSource;
+    @Bean
+    @ConditionalOnMissingBean(AuthenticationSuccessHandler.class)
+    public AuthenticationSuccessHandler authenticationSuccessHandler(){
+        return new DefaultAuthenticationSuccessHandler();
+    }
+    @Bean
+    @ConditionalOnMissingBean(AuthenticationFailureHandler.class)
+    public AuthenticationFailureHandler authenticationFailureHandler(){
+        return new DefaultAuthenticationFailureHandler();
+    }
     @Bean
     @ConditionalOnMissingBean(PasswordEncoder.class)
     public PasswordEncoder passwordEncoder(){
