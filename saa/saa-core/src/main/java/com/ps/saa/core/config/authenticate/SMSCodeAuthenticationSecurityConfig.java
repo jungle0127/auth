@@ -1,4 +1,4 @@
-package com.ps.saa.core.config;
+package com.ps.saa.core.config.authenticate;
 
 import com.ps.saa.core.validate.filter.authenticationfilter.SMSAuthenticationFilter;
 import com.ps.saa.core.validate.filter.authenticationfilter.SMSAuthenticationProvider;

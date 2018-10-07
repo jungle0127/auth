@@ -1,7 +1,7 @@
 package com.ps.saa.core.config;
 
-import com.ps.saa.core.authenticate.DefaultAuthenticationFailureHandler;
-import com.ps.saa.core.authenticate.DefaultAuthenticationSuccessHandler;
+import com.ps.saa.core.handler.DefaultAuthenticationFailureHandler;
+import com.ps.saa.core.handler.DefaultAuthenticationSuccessHandler;
 import com.ps.saa.core.service.DefaultUserDetailsService;
 import com.ps.saa.core.validate.code.sender.SMSCodeSender;
 import com.ps.saa.core.validate.code.sender.impl.DefaultSMSCodeSenderImpl;

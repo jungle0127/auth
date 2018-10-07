@@ -1,4 +1,4 @@
-package com.ps.saa.core.authenticate;
+package com.ps.saa.core.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

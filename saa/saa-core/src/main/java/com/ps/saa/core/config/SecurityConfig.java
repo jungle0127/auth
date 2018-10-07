@@ -1,6 +1,7 @@
 package com.ps.saa.core.config;
 
 import com.ps.saa.core.authorize.ConfigureManager;
+import com.ps.saa.core.config.authenticate.SMSCodeAuthenticationSecurityConfig;
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
 import com.ps.saa.core.validate.filter.ImageCodeFilter;
