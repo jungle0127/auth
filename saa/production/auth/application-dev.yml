@@ -6,13 +6,24 @@ server:
 logging:
   config: classpath:log/logback.cfg.xml
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/saa?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: lotus
+
 saa:
   browser:
     loginPage: /default-form-image-code-sign-in.html
     loginProcessingUrl: /authentication/form
+    rememberMeSeconds: 3600
   validateCode:
     imageCode:
       width: 67
       height: 23
       codeLength: 4
+      expiredInMinutes: 5
+    smsCode:
+      codeLength: 6
       expiredInMinutes: 5

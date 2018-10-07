@@ -1,5 +1,6 @@
 package com.ps.saa.core.config;
 
+import com.ps.saa.core.authorize.ConfigureManager;
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
 import com.ps.saa.core.validate.filter.ImageCodeFilter;
@@ -22,8 +23,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private PersistentTokenRepository tokenRepository;
     @Autowired
     private UserDetailsService userDetailsService;
+    @Autowired
+    private ConfigureManager configureManager;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        configureManager.config(http.authorizeRequests());
+
         http.addFilterBefore(new ImageCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new SMSCodeFilter(),UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
@@ -34,13 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .tokenRepository(tokenRepository)
                 .tokenValiditySeconds(saaProperties.getBrowser().getRememberMeSeconds())
                 .userDetailsService(userDetailsService)
-                .and()
-                .authorizeRequests().antMatchers(
-                        SAAConstants.VALIDATE_CODE_SMS_URL,
-                        SAAConstants.VALIDATE_CODE_IMAGE_URL,
-                        SAAConstants.AUTHENTICATE_URL,
-                        saaProperties.getBrowser().getLoginProcessingUrl(),
-                        saaProperties.getBrowser().getLoginPage()).permitAll()
                 .and()
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
