@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMS Sign In</title>
+</head>
+<body>
+<form action="/saa/authentication/sms" method="post">
+    <table>
+        <tr>
+            <td>手机号:</td>
+            <td><input type="text" name="phoneNumber" value="18088888888"></td>
+        </tr>
+        <tr>
+            <td>短信验证码:</td>
+            <td>
+                <input type="text" name="smsCode">
+                <a href="/saa/validate/code/sms?phoneNumber=18088888888">发送验证码</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'><input name="remember-me" type="checkbox" value="true" />记住我</td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">登录</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.ps.saa.core.controller;
+package com.ps.saa.browser.controller;
 
 import com.ps.saa.core.dto.RestResponse;
 import com.ps.saa.core.properties.SAAProperties;

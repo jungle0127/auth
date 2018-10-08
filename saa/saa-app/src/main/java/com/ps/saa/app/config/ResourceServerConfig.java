@@ -1,6 +1,7 @@
 package com.ps.saa.app.config;
 
-import com.ps.saa.core.config.SMSCodeAuthenticationSecurityConfig;
+import com.ps.saa.core.config.authenticate.FormAuthenticationConfigure;
+import com.ps.saa.core.config.authenticate.SMSCodeAuthenticationSecurityConfig;
 import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +20,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     private AuthenticationFailureHandler authenticationFailureHandler;
     @Autowired
+    private FormAuthenticationConfigure formAuthenticationConfigure;
+    @Autowired
     private SMSCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
     @Autowired
     private SAAProperties saaProperties;
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
-                .failureHandler(authenticationFailureHandler)
-                .successHandler(authenticationSuccessHandler)
-                .loginPage(SAAConstants.DEFAULT_LOGIN_PAGE)
-                .loginProcessingUrl(SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL);
+        formAuthenticationConfigure.config(http);
         http.apply(smsCodeAuthenticationSecurityConfig).and()
                 .authorizeRequests()
                 .antMatchers( SAAConstants.VALIDATE_CODE_SMS_URL,

@@ -16,6 +16,7 @@ saa:
   browser:
     loginPage: /default-form-image-code-sign-in.html
     loginProcessingUrl: /authentication/form
+    #    loginSuccessUrl: /index.html
     rememberMeSeconds: 3600
   validateCode:
     imageCode:
