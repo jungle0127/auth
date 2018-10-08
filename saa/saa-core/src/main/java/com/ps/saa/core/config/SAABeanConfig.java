@@ -1,24 +1,28 @@
 package com.ps.saa.core.config;
 
-import com.ps.saa.core.service.DefaultSocialUserDetailService;
+import com.ps.saa.core.handler.DefaultAuthenticationFailureHandler;
+import com.ps.saa.core.handler.DefaultAuthenticationSuccessHandler;
 import com.ps.saa.core.service.DefaultUserDetailsService;
 import com.ps.saa.core.validate.code.sender.SMSCodeSender;
 import com.ps.saa.core.validate.code.sender.impl.DefaultSMSCodeSenderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-import org.springframework.social.security.SocialUserDetailsService;
 
 import javax.sql.DataSource;
 
 @Configuration
 public class SAABeanConfig {
+    @Qualifier("dataSource")
     @Autowired
     public DataSource dataSource;
     @Bean
@@ -32,16 +36,20 @@ public class SAABeanConfig {
         return new DefaultUserDetailsService();
     }
     @Bean
-    @ConditionalOnMissingBean(SocialUserDetailsService.class)
-    public SocialUserDetailsService socialUserDetailsService(){
-        return new DefaultSocialUserDetailService();
-    }
-    @Bean
     @ConditionalOnMissingBean(SMSCodeSender.class)
     public SMSCodeSender smsCodeSender(){
         return new DefaultSMSCodeSenderImpl();
     }
-
+    @Bean
+    @ConditionalOnMissingBean(AuthenticationFailureHandler.class)
+    public AuthenticationFailureHandler authenticationFailureHandler(){
+        return new DefaultAuthenticationFailureHandler();
+    }
+    @Bean
+    @ConditionalOnMissingBean(AuthenticationSuccessHandler.class)
+    public AuthenticationSuccessHandler authenticationSuccessHandler(){
+        return new DefaultAuthenticationSuccessHandler();
+    }
     @Bean
     public PersistentTokenRepository persistentTokenRepository(){
         JdbcTokenRepositoryImpl tokenRepository = new JdbcTokenRepositoryImpl();

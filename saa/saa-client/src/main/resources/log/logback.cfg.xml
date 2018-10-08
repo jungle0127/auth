@@ -9,8 +9,7 @@
             <!--Fort output stream：%d for date，%thread for thread name，
                 %-5level：level name, show 5 letters since left.
                     %msg：log message，%n for change line -->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -
-                %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </encoder>
     </appender>
     <appender name="FILE"
@@ -28,8 +27,7 @@
             <!--For output stream：%d for date，%thread for thread name，
                 %-5level：level name, show 5 letters since left.
                     %msg：log message，%n for change line -->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} -
-                %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </encoder>
         <!--max size of log file. -->
         <triggeringPolicy
