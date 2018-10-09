@@ -22,7 +22,7 @@
     <dependencies>
         <dependency>
             <groupId>com.ps.saa</groupId>
-            <artifactId>saa-browser</artifactId>
+            <artifactId>saa-app</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
