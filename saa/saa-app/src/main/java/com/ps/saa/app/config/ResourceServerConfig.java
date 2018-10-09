@@ -16,10 +16,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
-    private AuthenticationSuccessHandler authenticationSuccessHandler;
-    @Autowired
-    private AuthenticationFailureHandler authenticationFailureHandler;
-    @Autowired
     private FormAuthenticationConfigure formAuthenticationConfigure;
     @Autowired
     private SMSCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;

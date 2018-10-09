@@ -1,7 +1,6 @@
 package com.ps.saa.core.config.authenticate;
 
 import com.ps.saa.core.properties.SAAConstants;
-import com.ps.saa.core.properties.SAAProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FormAuthenticationConfigure {
-    @Autowired
-    private SAAProperties saaProperties;
     @Autowired
     private AuthenticationFailureHandler authenticationFailureHandler;
     @Autowired
