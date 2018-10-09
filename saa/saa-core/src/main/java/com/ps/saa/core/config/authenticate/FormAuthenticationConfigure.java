@@ -1,5 +1,6 @@
 package com.ps.saa.core.config.authenticate;
 
+import com.ps.saa.core.properties.SAAConstants;
 import com.ps.saa.core.properties.SAAProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,7 +21,7 @@ public class FormAuthenticationConfigure {
         http.formLogin()
                 .successHandler(authenticationSuccessHandler)
                 .failureHandler(authenticationFailureHandler)
-                .loginPage(saaProperties.getBrowser().getLoginPage())
-                .loginProcessingUrl(saaProperties.getBrowser().getLoginProcessingUrl());
+                .loginPage(SAAConstants.AUTHENTICATE_URL)
+                .loginProcessingUrl(SAAConstants.DEFAULT_FORM_LOGIN_PROCESSING_URL);
     }
 }
