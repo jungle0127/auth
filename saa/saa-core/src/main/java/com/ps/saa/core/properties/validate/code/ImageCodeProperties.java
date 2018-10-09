@@ -1,4 +1,4 @@
-package com.ps.saa.core.properties;
+package com.ps.saa.core.properties.validate.code;
 
 public class ImageCodeProperties {
     private Integer width = 67;

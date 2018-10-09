@@ -1,7 +1,9 @@
+
 server:
   port: 8080
   servlet:
     context-path: /saa
+  context-path: /saa
 
 logging:
   config: classpath:log/logback.cfg.xml
@@ -13,6 +15,11 @@ spring:
     username: root
     password: lotus
 saa:
+  oauth2:
+    client[0]:
+      clientId: saa
+      clientSecret: secret
+      accessTokenValiditySeconds: 7200
   browser:
     loginPage: /default-form-sms-code-sign-in.html
     loginProcessingUrl: /authentication/form
@@ -33,3 +40,4 @@ security:
     client:
       client-id: saa
       client-secret: secret
+

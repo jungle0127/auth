@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 @Configuration
 @EnableResourceServer
-public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
     @Autowired
     private FormAuthenticationConfigure formAuthenticationConfigure;
     @Autowired
@@ -24,7 +24,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         formAuthenticationConfigure.config(http);
-        http.apply(smsCodeAuthenticationSecurityConfig).and()
+        http.apply(smsCodeAuthenticationSecurityConfig)
+                .and()
                 .authorizeRequests()
                 .antMatchers( SAAConstants.VALIDATE_CODE_SMS_URL,
                         SAAConstants.VALIDATE_CODE_IMAGE_URL,

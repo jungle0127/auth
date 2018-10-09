@@ -1,0 +1,413 @@
+{
+  "front-version": "2.19.1",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "id": "8e088537-1520-4c46-8859-ff64fc93ca00",
+      "lastModified": "2018-10-09T15:36:48.830+08:00",
+      "name": "SAA"
+    },
+    {
+      "type": "Scenario",
+      "description": "Spring Security Oauth2 DEMO with version 1.5.6",
+      "id": "facf6d9e-4394-4fa9-b628-4e00399a7962",
+      "lastModified": "2018-10-09T15:36:48.830+08:00",
+      "name": "SAA-APP-OAuth2",
+      "requestOrder": [
+        "OAuth-Authorize",
+        "Request 2",
+        "GetToken",
+        "GetToken-authcode",
+        "Request 3",
+        "GetToken-usrpwd",
+        "Request 4",
+        "RESOURCE-DEMO",
+        "Request 5",
+        "GET-TOKEN",
+        "Request 6",
+        "GET-TOKEN-SMS"
+      ],
+      "parentId": "8e088537-1520-4c46-8859-ff64fc93ca00"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "response_type",
+              "value": "code"
+            },
+            {
+              "enabled": true,
+              "name": "client_id",
+              "value": "saa"
+            },
+            {
+              "enabled": true,
+              "name": "redirect_uri",
+              "value": "http://www.baidu.com"
+            },
+            {
+              "enabled": true,
+              "name": "scope",
+              "value": "all"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/oauth/authorize"
+      },
+      "id": "322baf2b-b7d8-4bd5-aa9e-7d50fdb65c24",
+      "lastModified": "2018-10-09T14:46:49.881+08:00",
+      "name": "OAuth-Authorize",
+      "headers": [],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": [
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "client_id",
+              "value": "saa"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "code",
+              "value": "7A2VjS"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "redirect_uri",
+              "value": "http://www.baidu.com"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "scope",
+              "value": "all"
+            }
+          ]
+        },
+        "bodyType": "Form",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/oauth/token"
+      },
+      "id": "57583cb3-c5a7-45fc-b75d-dd3406386cf0",
+      "lastModified": "2018-10-09T15:00:58.607+08:00",
+      "name": "GetToken-authcode",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        },
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Basic c2FhOnNlY3JldA=="
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": [
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "grant_type",
+              "value": "password"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "username",
+              "value": "admin"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "password",
+              "value": "lotus"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "scope",
+              "value": "all"
+            }
+          ]
+        },
+        "bodyType": "Form",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/oauth/token"
+      },
+      "id": "11eb72c2-5278-4085-b557-09ee561272a6",
+      "lastModified": "2018-10-09T14:53:13.775+08:00",
+      "name": "GetToken-usrpwd",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        },
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Basic c2FhOnNlY3JldA=="
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/home/me"
+      },
+      "id": "f4778e28-f721-42ff-86ba-a4a923da4c99",
+      "lastModified": "2018-10-09T15:28:15.864+08:00",
+      "name": "RESOURCE-DEMO",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "bearer eec07c11-cb81-48a4-a32f-da831f6bba0f"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": [
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "username",
+              "value": "admin"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "password",
+              "value": "lotus"
+            }
+          ]
+        },
+        "bodyType": "Form",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/authentication/form"
+      },
+      "id": "8711c905-32e3-42e0-b8ea-3b48117f6e89",
+      "lastModified": "2018-10-09T15:33:00.609+08:00",
+      "name": "GET-TOKEN",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Basic c2FhOnNlY3JldA=="
+        },
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": [
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "phoneNumber",
+              "value": "18088888888"
+            },
+            {
+              "enabled": true,
+              "type": "Text",
+              "name": "smsCode",
+              "value": "290030"
+            }
+          ]
+        },
+        "bodyType": "Form",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:8080",
+        "path": "/saa/authentication/sms"
+      },
+      "id": "88b7d59e-dc67-4a0f-8b5f-58fa9b591b00",
+      "lastModified": "2018-10-09T15:36:48.830+08:00",
+      "name": "GET-TOKEN-SMS",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        },
+        {
+          "enabled": true,
+          "name": "Authorization",
+          "value": "Basic c2FhOnNlY3JldA=="
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "auth0|5bbb0c1183d0872e14d7ee8b"
+      },
+      "parentId": "facf6d9e-4394-4fa9-b628-4e00399a7962"
+    }
+  ]
+}

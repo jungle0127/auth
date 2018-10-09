@@ -50,7 +50,7 @@ public class DefaultAuthenticationSuccessHandler extends SimpleUrlAuthentication
         ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
         if(clientDetails == null){
             throw new UnapprovedClientAuthenticationException(String.format("Client information for clientId:%s does not exist.",clientId));
-        } else if(StringUtils.equals(clientSecret,clientDetails.getClientSecret())){
+        } else if(!StringUtils.equals(clientSecret,clientDetails.getClientSecret())){
             throw new UnapprovedClientAuthenticationException("Client secret is invalid.");
         }
         TokenRequest tokenRequest = new TokenRequest(MapUtils.EMPTY_MAP,clientId,clientDetails.getScope(),"custom");

@@ -1,4 +1,7 @@
-package com.ps.saa.core.properties;
+package com.ps.saa.core.properties.browser;
+
+import com.ps.saa.core.properties.ResponseType;
+import com.ps.saa.core.properties.SAAConstants;
 
 public class BrowserProperties {
     private String loginPage = SAAConstants.DEFAULT_LOGIN_PAGE;

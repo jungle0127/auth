@@ -1,4 +1,4 @@
-package com.ps.saa.core.properties;
+package com.ps.saa.core.properties.validate.code;
 
 public class SMSCodeProperties {
     private Integer codeLength = 6;
