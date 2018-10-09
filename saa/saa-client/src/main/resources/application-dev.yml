@@ -16,6 +16,9 @@ spring:
     password: lotus
 saa:
   oauth2:
+    token:
+      storeType: jwt
+      jwtSigningKey: qpewiurqpweoirupqrpzmnvcnbvmnvbmnbvbcbvxcbvcxvbcxnbcvnbv
     client[0]:
       clientId: saa
       clientSecret: secret
