@@ -14,8 +14,9 @@ spring:
     password: lotus
 saa:
   browser:
-    loginPage: /default-form-image-code-sign-in.html
+    loginPage: /default-form-sms-code-sign-in.html
     loginProcessingUrl: /authentication/form
+    loginType: REDIRECT
     #    loginSuccessUrl: /index.html
     rememberMeSeconds: 3600
   validateCode:

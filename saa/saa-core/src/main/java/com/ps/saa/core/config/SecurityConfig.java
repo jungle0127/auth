@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-@Configuration
+//@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SAAProperties saaProperties;
@@ -24,13 +24,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private PersistentTokenRepository tokenRepository;
     @Autowired
     private UserDetailsService userDetailsService;
-    @Autowired
-    private ConfigureManager configureManager;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        configureManager.config(http.authorizeRequests());
-
         http.addFilterBefore(new ImageCodeFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new SMSCodeFilter(),UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
