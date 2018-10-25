@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ImageCodeFilter extends OncePerRequestFilter {
+public class  ImageCodeFilter extends OncePerRequestFilter {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
     @Override

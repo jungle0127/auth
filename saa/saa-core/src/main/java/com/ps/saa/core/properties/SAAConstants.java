@@ -2,7 +2,8 @@ package com.ps.saa.core.properties;
 
 public interface SAAConstants {
     String DEFAULT_LOGIN_PAGE = "/default-form-image-code-sign-in.html";
-    String DEFAULT_FORM_LOGIN_PROCESSING_URL = "/authentication/form";
+    String
+            DEFAULT_FORM_LOGIN_PROCESSING_URL = "/authentication/form";
     String DEFAULT_SMS_LGOIN_PROCESSING_URL = "/authentication/sms";
     String AUTHENTICATE_URL = "/authentication/require";
 
